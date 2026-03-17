@@ -8,7 +8,7 @@ test('has title', async ({ page }) => {
   await page.goto('/auth/login/');
   await page.getByTestId("email").fill(username);
   await page.getByTestId("password").fill(password);
-  await page.locator("//input[@aria-label='Login']").click();
+  await page.getByTestId("login-submit").click();
   await page
     .getByRole('listitem')
     .filter({ hasText: 'Home' }).isVisible();
