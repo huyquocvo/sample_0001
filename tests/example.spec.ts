@@ -9,6 +9,7 @@ test('has title', async ({ page,context }) => {
   await page.goto('/auth/login/');
   const loginPage = new LoginPage(page);
   await loginPage.login(username, password);
+  expect(await loginPage.navAdminMenu.innerText()).toContain("John Doe");
   // await page.getByTestId("email").fill(username);
   // await page.getByTestId("password").fill(password);
   // await page.getByTestId("login-submit").click();
