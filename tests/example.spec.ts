@@ -16,6 +16,7 @@ test('has title', async ({ page }) => {
   //await expect(page).toHaveTitle(/Practice Software Testing/);
   expect(username).toBe("admin@practicesoftwaretesting.com");
   expect(password).toBe("welcome01");
+  
 });
 
 test('get started link', async ({ page }) => {
