@@ -4,8 +4,7 @@ test('has title', async ({ page }) => {
 
   const username = process.env.USER_NAME;
   const password = process.env.PASSWORD;
-  console.log(username);
-  console.log(password);
+
   await page.goto('/auth/login/');
 
   // Expect a title "to contain" a substring.
