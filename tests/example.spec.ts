@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { LoginPage } from '../pages/loginPage';
 
 test('has title', async ({ page,context }) => {
 
@@ -6,12 +7,14 @@ test('has title', async ({ page,context }) => {
   const password = process.env.PASSWORD as string;
 
   await page.goto('/auth/login/');
-  await page.getByTestId("email").fill(username);
-  await page.getByTestId("password").fill(password);
-  await page.getByTestId("login-submit").click();
-  await page
-    .getByRole('listitem')
-    .filter({ hasText: 'Home' }).isVisible();
+  const loginPage = new LoginPage(page);
+  await loginPage.login(username, password);
+  // await page.getByTestId("email").fill(username);
+  // await page.getByTestId("password").fill(password);
+  // await page.getByTestId("login-submit").click();
+  // await page
+  //   .getByRole('listitem')
+  //   .filter({ hasText: 'Home' }).isVisible();
     const adminAuthFile = ".auth/admin.json";
     await context.storageState({ path: adminAuthFile });
   // Expect a title "to contain" a substring.
