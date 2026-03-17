@@ -9,9 +9,9 @@ test('has title', async ({ page }) => {
   await page.getByTestId("email").fill(username);
   await page.getByTestId("password").fill(password);
   await page.getByTestId("login-submit").click();
-  await expect(page
+  await page
     .getByRole('listitem')
-    .filter({ hasText: 'Home' }).isVisible());
+    .filter({ hasText: 'Home' }).isVisible();
   // Expect a title "to contain" a substring.
   //await expect(page).toHaveTitle(/Practice Software Testing/);
   expect(username).toBe("admin@practicesoftwaretesting.com");
