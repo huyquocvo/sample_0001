@@ -36,6 +36,20 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+     { 
+      name: "setup", 
+      testMatch: /.*\.setup\.ts/, 
+      fullyParallel: true 
+
+    },
+    {
+      name: "ui-tests",
+      use: {
+        ...devices['Desktop Chrome'],
+        //storageState: '.auth/admin.json', // Path from setup
+      },
+      dependencies: ['setup'],
+    },
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
