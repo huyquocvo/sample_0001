@@ -20,8 +20,8 @@ const customer02AuthFile = ".auth/customer02.json";
 
 setup("Create Admin Auth", async ({ page, context }) => {
   const loginPage = new LoginPage(page);
-  await loginPage.goto();
-
+  //await loginPage.goto();
+  await page.goto('/auth/login/');
   await loginPage.login(adminEmail, adminPassword);
   expect(await loginPage.navAdminMenu.innerText()).toContain("John Doe");
 
@@ -40,8 +40,8 @@ setup("Create Admin Auth", async ({ page, context }) => {
 
 setup("Create Customer 02 Auth", async ({ page, context }) => {
   const loginPage = new LoginPage(page);
-  await loginPage.goto();
-
+  //await loginPage.goto();
+  await page.goto('/auth/login/');
   await loginPage.login(customer02Email, customer02Password);
   expect(await loginPage.navUserMenu.innerText()).toContain("Jack Howe");
 
