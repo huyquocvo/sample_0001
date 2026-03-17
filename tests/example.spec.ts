@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('has title', async ({ page }) => {
+test('has title', async ({ page,context }) => {
 
   const username = process.env.USER_NAME as string;
   const password = process.env.PASSWORD as string;
@@ -12,6 +12,8 @@ test('has title', async ({ page }) => {
   await page
     .getByRole('listitem')
     .filter({ hasText: 'Home' }).isVisible();
+    const adminAuthFile = ".auth/admin.json";
+    await context.storageState({ path: adminAuthFile });
   // Expect a title "to contain" a substring.
   //await expect(page).toHaveTitle(/Practice Software Testing/);
   expect(username).toBe("admin@practicesoftwaretesting.com");
