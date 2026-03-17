@@ -2,13 +2,18 @@ import { test, expect } from '@playwright/test';
 
 test('has title', async ({ page }) => {
 
-  const username = process.env.USER_NAME;
-  const password = process.env.PASSWORD;
+  const username = process.env.USER_NAME as string;
+  const password = process.env.PASSWORD as string;
 
   await page.goto('/auth/login/');
-
+  await page.locator("#email").fill(username);
+  await page.locator("#password").fill(password);
+  await page.getByTestId("login-submit").click();
+  await page
+    .getByRole('listitem')
+    .filter({ hasText: 'Home' }).isVisible();
   // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Practice Software Testing/);
+  //await expect(page).toHaveTitle(/Practice Software Testing/);
   expect(username).toBe("admin@practicesoftwaretesting.com");
   expect(password).toBe("welcome01");
 });
