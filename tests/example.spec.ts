@@ -16,6 +16,7 @@ test('has title', async ({ page,context }) => {
   await page
     .getByRole('listitem')
     .filter({ hasText: 'John Doe' }).isVisible();
+    expect(await loginPage.navAdminMenu.innerText()).toContain("John Doe");
     const adminAuthFile = ".auth/admin.json";
     await context.storageState({ path: adminAuthFile });
   // Expect a title "to contain" a substring.
