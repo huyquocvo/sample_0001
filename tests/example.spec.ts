@@ -25,7 +25,6 @@ test('has title', async ({ page,context }) => {
   expect(password).toBe("welcome01");
 
 });
-
 test('get started link', async ({ page }) => {
   
   await page.goto('/auth/login/');
