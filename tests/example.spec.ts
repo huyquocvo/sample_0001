@@ -28,7 +28,6 @@ test('has title', async ({ page,context }) => {
 test('get started link', async ({ page }) => {
   
   await page.goto('/auth/login/');
-
   // Click the get started link.
   await expect(page.getByRole('heading', { name: 'Login' })).toBeVisible();
 
