@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     env: #define your environment variables
       BASE_URL: ${{vars.BASE_URL}}
-      USER_NAME: ${{secrets.USER_NAME}}
-      PASSWORD: ${{secrets.PASSWORD}}
+      STANDARD_USER: ${{secrets.STANDARD_USER}}
+      STANDARD_PASSWORD: ${{secrets.STANDARD_PASSWORD}}
       ADMIN_USERNAME: ${{secrets.ADMIN_USERNAME}}
       ADMIN_PASSWORD: ${{secrets.ADMIN_PASSWORD}}
       CUSTOMER_02_USERNAME: ${{secrets.CUSTOMER_02_USERNAME}}
