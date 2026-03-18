@@ -48,7 +48,7 @@ export default defineConfig({
       name: "ui-tests",
       use: {
         ...devices['Desktop Chrome'],
-        storageState: '.auth/standard_user.json', // Path from setup
+       // storageState: '.auth/standard_user.json', // Path from setup
       },
       dependencies: ['setup'],
     },

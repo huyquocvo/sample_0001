@@ -8,46 +8,43 @@ import { LoginPage } from "../pages/loginPage";
 
 let standard_user = process.env.STANDARD_USER as string;
 let standard_user_password = process.env.STANDARD_PASSWORD as string;
-// let adminEmail = "standard_user";
-// let adminPassword = "secret_sauce";
-
-const adminAuthFile = ".auth/standard_user.json";
+const standard_user_File = ".auth/standard_user.json";
 
 
  let problem_user = process.env.PROBLEM_USER as string;
  let problem_password = process.env.PROBLEM_PASSWORD as string;
-// const customer01AuthFile = ".auth/problem_user.json";
+ const problem_user_File = ".auth/problem_user.json";
 
-// let customer02Email = process.env.CUSTOMER_02_USERNAME as string;
-// let customer02Password = process.env.CUSTOMER_02_PASSWORD as string;
-// const customer02AuthFile = ".auth/customer02.json";
+ let performance_glitch_user = process.env.PERFORMANCE_GLITCH_USER as string;
+ let performance_glitch_password = process.env.PERFORMANCE_GLITCH_PASSWORD as string;
+ const performance_glitch_user_File = ".auth/performance_glitch_user.json";
 
-setup("Create Admin Auth", async ({ page, context }) => {
+setup("Create standard user Auth", async ({ page, context }) => {
   const loginPage = new LoginPage(page);
   await loginPage.goto();
 
   await loginPage.login(standard_user, standard_user_password);
   await expect(page.getByRole('button', { name: 'Open Menu' })).toBeVisible();
  // expect(await loginPage.navAdminMenu.innerText()).toContain("John Doe");
-  await context.storageState({ path: adminAuthFile });
+  await context.storageState({ path: standard_user_File });
 });
 
-// setup("Create Customer 01 Auth", async ({ page, context }) => {
-//   const loginPage = new LoginPage(page);
-//   await loginPage.goto();
+setup("Create problem user Auth", async ({ page, context }) => {
+  const loginPage = new LoginPage(page);
+  await loginPage.goto();
 
-//   await loginPage.login(customer01Email, customer01Password);
-//   expect(await loginPage.navUserMenu.innerText()).toContain("abc ac");
+  await loginPage.login(problem_user, problem_password);
+  await expect(page.getByRole('button', { name: 'Open Menu' })).toBeVisible();
 
-//   await context.storageState({ path: customer01AuthFile });
-// });
+  await context.storageState({ path: problem_user_File });
+});
 
-// setup("Create Customer 02 Auth", async ({ page, context }) => {
-//   const loginPage = new LoginPage(page);
-//   await loginPage.goto();
+setup("Create performance glitch user Auth", async ({ page, context }) => {
+  const loginPage = new LoginPage(page);
+  await loginPage.goto();
 
-//   await loginPage.login(customer02Email, customer02Password);
-//   expect(await loginPage.navUserMenu.innerText()).toContain("Jack Howe");
+  await loginPage.login(performance_glitch_user, performance_glitch_password);
+  await expect(page.getByRole('button', { name: 'Open Menu' })).toBeVisible();
 
-//   await context.storageState({ path: customer02AuthFile });
-// });
+  await context.storageState({ path: performance_glitch_user_File });
+});
