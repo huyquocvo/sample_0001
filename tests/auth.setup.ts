@@ -6,12 +6,12 @@
 import { test as setup, expect } from "@playwright/test";
 import { LoginPage } from "../pages/loginPage";
 
-let adminEmail = process.env.USER_NAME as string;
-let adminPassword = process.env.PASSWORD as string;
+let standard_user = process.env.STANDARD_USER as string;
+let standard_user_password = process.env.STANDARD_PASSWORD as string;
 // let adminEmail = "standard_user";
 // let adminPassword = "secret_sauce";
 
-const adminAuthFile = ".auth/admin.json";
+const adminAuthFile = ".auth/standard_user.json";
 
 // let customer01Email = process.env.CUSTOMER_01_USERNAME as string;
 // let customer01Password = process.env.CUSTOMER_01_PASSWORD as string;
@@ -25,7 +25,7 @@ setup("Create Admin Auth", async ({ page, context }) => {
   const loginPage = new LoginPage(page);
   await loginPage.goto();
 
-  await loginPage.login(adminEmail, adminPassword);
+  await loginPage.login(standard_user, standard_user_password);
   await expect(page.getByRole('button', { name: 'Open Menu' })).toBeVisible();
  // expect(await loginPage.navAdminMenu.innerText()).toContain("John Doe");
   await context.storageState({ path: adminAuthFile });
