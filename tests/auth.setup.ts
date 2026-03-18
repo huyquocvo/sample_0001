@@ -13,9 +13,10 @@ let standard_user_password = process.env.STANDARD_PASSWORD as string;
 
 const adminAuthFile = ".auth/standard_user.json";
 
-// let customer01Email = process.env.CUSTOMER_01_USERNAME as string;
-// let customer01Password = process.env.CUSTOMER_01_PASSWORD as string;
-// const customer01AuthFile = ".auth/customer01.json";
+
+ let problem_user = process.env.PROBLEM_USER as string;
+ let problem_password = process.env.PROBLEM_PASSWORD as string;
+// const customer01AuthFile = ".auth/problem_user.json";
 
 // let customer02Email = process.env.CUSTOMER_02_USERNAME as string;
 // let customer02Password = process.env.CUSTOMER_02_PASSWORD as string;
