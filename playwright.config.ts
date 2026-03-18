@@ -25,7 +25,8 @@ export default defineConfig({
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    baseURL: process.env.BASE_URL,
+     baseURL: process.env.BASE_URL,
+   // baseURL: 'https://www.saucedemo.com',
     headless: true,
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',

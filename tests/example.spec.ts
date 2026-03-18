@@ -6,7 +6,7 @@ test('has title', async ({ page,context }) => {
   const username = process.env.USER_NAME as string;
   const password = process.env.PASSWORD as string;
 
-  await page.goto('/');
+  await page.goto('/inventory.html');
   // const loginPage = new LoginPage(page);
   // await loginPage.login(username, password);
   //expect(await loginPage.navAdminMenu.innerText()).toContain("John Doe");
@@ -27,7 +27,7 @@ test('has title', async ({ page,context }) => {
 });
 test('get started link', async ({ page }) => {
   
-  await page.goto('/');
+  await page.goto('/inventory.html');
   await expect(page.getByRole('button', { name: 'Open Menu' })).toBeVisible();
   // Click the get started link.
  // await expect(page.getByRole('heading', { name: 'Login' })).toBeVisible();

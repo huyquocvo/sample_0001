@@ -8,6 +8,9 @@ import { LoginPage } from "../pages/loginPage";
 
 let adminEmail = process.env.USER_NAME as string;
 let adminPassword = process.env.PASSWORD as string;
+// let adminEmail = "standard_user";
+// let adminPassword = "secret_sauce";
+
 const adminAuthFile = ".auth/admin.json";
 
 // let customer01Email = process.env.CUSTOMER_01_USERNAME as string;
@@ -25,7 +28,6 @@ setup("Create Admin Auth", async ({ page, context }) => {
   await loginPage.login(adminEmail, adminPassword);
   await expect(page.getByRole('button', { name: 'Open Menu' })).toBeVisible();
  // expect(await loginPage.navAdminMenu.innerText()).toContain("John Doe");
-
   await context.storageState({ path: adminAuthFile });
 });
 
