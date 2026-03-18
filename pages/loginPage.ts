@@ -3,37 +3,27 @@
 import { Locator, Page,expect } from "@playwright/test";
 
 export class LoginPage {
-  readonly username:Locator;
-  readonly password:Locator;
-  readonly submit:Locator;
-  readonly navUserMenu:Locator;
-  readonly navAdminMenu:Locator;
-  readonly navSignOut:Locator;
-  readonly navSignIn:Locator;
+  readonly txtUsername:Locator;
+  readonly txtPassword:Locator;
+  readonly btnLogin:Locator;
+
 constructor(private readonly page: Page) 
     {
-    this.username = this.page.getByTestId("username");
-    this.password = this.page.getByTestId("password");
-    this.submit = this.page.getByTestId("login-button");
-    this.navUserMenu = this.page.getByTestId("nav-menu");
-    this.navAdminMenu = this.page.getByTestId("nav-menu");
-    this.navSignOut = this.page.getByTestId("nav-sign-out");
-    this.navSignIn = this.page.getByTestId("nav-sign-in");
+    this.txtUsername = this.page.getByTestId("username");
+    this.txtPassword = this.page.getByTestId("password");
+    this.btnLogin = this.page.getByTestId("login-button");
     }
   async goto() 
   {
-  await this.page.goto("/");
-
-  // Expect a title "to contain" a substring.
-  //await expect(this.page).toHaveTitle(/Practice Software Testing/);
   
+    await this.page.goto("/");
 
   }
 
   async login(email: string, password: string) {
    // await this.goto();
-    await this.username.fill(email);
-    await this.password.fill(password);
-    await this.submit.click();
+    await this.txtUsername.fill(email);
+    await this.txtPassword.fill(password);
+    await this.btnLogin.click();
   }
 }

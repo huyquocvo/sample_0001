@@ -1,8 +1,6 @@
 // tests/auth.setup.ts
 
 // Save your storage state to a file in the .auth directory via setup test
-
-
 import { test as setup, expect } from "@playwright/test";
 import { LoginPage } from "../pages/loginPage";
 
@@ -25,7 +23,6 @@ setup("Create standard user Auth", async ({ page, context }) => {
 
   await loginPage.login(standard_user, standard_user_password);
   await expect(page.getByRole('button', { name: 'Open Menu' })).toBeVisible();
- // expect(await loginPage.navAdminMenu.innerText()).toContain("John Doe");
   await context.storageState({ path: standard_user_File });
 });
 
@@ -45,6 +42,5 @@ setup("Create performance glitch user Auth", async ({ page, context }) => {
 
   await loginPage.login(performance_glitch_user, performance_glitch_password);
   await expect(page.getByRole('button', { name: 'Open Menu' })).toBeVisible();
-
   await context.storageState({ path: performance_glitch_user_File });
 });
