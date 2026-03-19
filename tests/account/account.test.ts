@@ -33,3 +33,10 @@ test.describe("Validate with error user Auth", () => {
     await expect(page.getByRole('button', { name: 'Open Menu' })).toBeVisible();
   });
 });
+test.describe("Validate with visual user Auth", () => {
+  test.use({ storageState: ".auth/visual_user.json" });
+  test("Validate with visual user account", async ({ page }) => {
+    await page.goto('/inventory.html');
+    await expect(page.getByRole('button', { name: 'Open Menu' })).toBeVisible();
+  });
+});
