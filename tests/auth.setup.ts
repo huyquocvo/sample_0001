@@ -8,7 +8,6 @@ let standard_user = process.env.STANDARD_USER as string;
 let standard_user_password = process.env.STANDARD_PASSWORD as string;
 const standard_user_File = ".auth/standard_user.json";
 
-
  let problem_user = process.env.PROBLEM_USER as string;
  let problem_password = process.env.PROBLEM_PASSWORD as string;
  const problem_user_File = ".auth/problem_user.json";
