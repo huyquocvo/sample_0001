@@ -16,6 +16,8 @@ jobs:
       PROBLEM_PASSWORD: ${{secrets.PROBLEM_PASSWORD}}
       PERFORMANCE_GLITCH_USER: ${{secrets.PERFORMANCE_GLITCH_USER}}
       PERFORMANCE_GLITCH_PASSWORD: ${{secrets.PERFORMANCE_GLITCH_PASSWORD}}
+      ERROR_USER: ${{secrets.ERROR_USER}}
+      ERROR_PASSWORD: ${{secrets.ERROR_PASSWORD}}
     steps:
     - uses: actions/checkout@v6
     - uses: actions/setup-node@v6
