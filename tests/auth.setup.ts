@@ -17,6 +17,11 @@ const standard_user_File = ".auth/standard_user.json";
  let performance_glitch_password = process.env.PERFORMANCE_GLITCH_PASSWORD as string;
  const performance_glitch_user_File = ".auth/performance_glitch_user.json";
 
+ let error_user = process.env.ERROR_USER as string;
+ let error_password = process.env.ERROR_PASSWORD as string;
+ const error_user_File = ".auth/error_user.json";
+
+
 setup("Create standard user Auth", async ({ page, context }) => {
   const loginPage = new LoginPage(page);
   await loginPage.goto();
@@ -43,4 +48,12 @@ setup("Create performance glitch user Auth", async ({ page, context }) => {
   await loginPage.login(performance_glitch_user, performance_glitch_password);
   await expect(page.getByRole('button', { name: 'Open Menu' })).toBeVisible();
   await context.storageState({ path: performance_glitch_user_File });
+});
+setup("Create error user Auth", async ({ page, context }) => {
+  const loginPage = new LoginPage(page);
+  await loginPage.goto();
+
+  await loginPage.login(error_user, error_password);
+  await expect(page.getByRole('button', { name: 'Open Menu' })).toBeVisible();
+  await context.storageState({ path: error_user_File });
 });

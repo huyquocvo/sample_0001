@@ -26,3 +26,10 @@ test.describe("Validate with performance glitch account", () => {
     await expect(page.getByRole('button', { name: 'Open Menu' })).toBeVisible();
   });
 });
+test.describe("Validate with error user Auth", () => {
+  test.use({ storageState: ".auth/error_user.json" });
+  test("Validate with error user account", async ({ page }) => {
+    await page.goto('/inventory.html');
+    await expect(page.getByRole('button', { name: 'Open Menu' })).toBeVisible();
+  });
+});
