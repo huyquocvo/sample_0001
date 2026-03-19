@@ -21,6 +21,9 @@ const standard_user_File = ".auth/standard_user.json";
  let error_password = process.env.ERROR_PASSWORD as string;
  const error_user_File = ".auth/error_user.json";
 
+  let visual_user = process.env.ERROR_USER as string;
+ let visual_password = process.env.ERROR_PASSWORD as string;
+ const visual_user_File = ".auth/visual_user.json";
 
 setup("Create standard user Auth", async ({ page, context }) => {
   const loginPage = new LoginPage(page);
@@ -56,4 +59,13 @@ setup("Create error user Auth", async ({ page, context }) => {
   await loginPage.login(error_user, error_password);
   await expect(page.getByRole('button', { name: 'Open Menu' })).toBeVisible();
   await context.storageState({ path: error_user_File });
+});
+
+setup("Create visual user Auth", async ({ page, context }) => {
+  const loginPage = new LoginPage(page);
+  await loginPage.goto();
+
+  await loginPage.login(visual_user, visual_password);
+  await expect(page.getByRole('button', { name: 'Open Menu' })).toBeVisible();
+  await context.storageState({ path: visual_user_File });
 });
