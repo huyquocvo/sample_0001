@@ -1,5 +1,4 @@
 // lib/pages/loginPage.ts
-
 import { Locator, Page,expect } from "@playwright/test";
 
 export class LoginPage {
