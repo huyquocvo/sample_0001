@@ -20,7 +20,7 @@ const standard_user_File = ".auth/standard_user.json";
  let error_password = process.env.ERROR_PASSWORD as string;
  const error_user_File = ".auth/error_user.json";
 
-  let visual_user = process.env.ERROR_USER as string;
+ let visual_user = process.env.ERROR_USER as string;
  let visual_password = process.env.ERROR_PASSWORD as string;
  const visual_user_File = ".auth/visual_user.json";
 
