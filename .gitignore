@@ -6,7 +6,4 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
-.env
-.auth/performance_glitch_user.json
-.auth/problem_user.json
-.auth/standard_user.json
+
