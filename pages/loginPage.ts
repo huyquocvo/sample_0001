@@ -12,10 +12,12 @@ constructor(private readonly page: Page)
     this.txtPassword = this.page.getByTestId("password");
     this.btnLogin = this.page.getByTestId("login-button");
     }
+    
   async goto() 
   {
       await this.page.goto("/");
   }
+
   async login(email: string, password: string) {
     await this.txtUsername.fill(email);
     await this.txtPassword.fill(password);
